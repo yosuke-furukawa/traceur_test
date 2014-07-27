@@ -1,19 +1,12 @@
-System.register("../greeter", [], function() {
+var Greeter = function Greeter(message) {
   "use strict";
-  var __moduleName = "../greeter";
-  var Greeter = function Greeter(message) {
-    this.message = message;
-  };
-  var $Greeter = Greeter;
-  ($traceurRuntime.createClass)(Greeter, {greet: function() {
-      var element = document.querySelector('#message');
-      element.innerHTML = this.message;
-    }}, {g: function(message) {
-      return new $Greeter(message);
-    }});
-  ;
-  var greeter = Greeter.g;
-  greeter("hoge").greet();
-  return {};
-});
-System.get("../greeter" + '');
+  this.message = message;
+};
+($traceurRuntime.createClass)(Greeter, {greet: function(message) {
+    "use strict";
+    var element = document.querySelector('#message');
+    element.innerHTML = message || this.message;
+  }}, {});
+Greeter.prototype.greet.parameters = [[$traceurRuntime.type.string]];
+var greeter = new Greeter('Hello, world!');
+greeter.greet(123);

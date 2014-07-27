@@ -5,12 +5,12 @@ class Greeter {
     this.message = message;
   }
   // greetメソッド
-  greet(message : string) {
+  greet() {
     // letという新しい変数定義
     // letを使うとblocking scopeといってこのblock内でしか有効じゃない
     let element = document.querySelector('#message');
-    element.innerHTML = message || this.message;
+    element.innerHTML = this.message;
   }
 }
 let greeter = new Greeter('Hello, world!');
-greeter.greet(123);
+greeter.greet();
