@@ -4,6 +4,7 @@ var Greeter = function Greeter(message) {
 };
 ($traceurRuntime.createClass)(Greeter, {greet: function(message) {
     "use strict";
+    assert.argumentTypes(message, $traceurRuntime.type.string);
     var element = document.querySelector('#message');
     element.innerHTML = message || this.message;
   }}, {});
